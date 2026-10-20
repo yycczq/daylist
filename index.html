@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f2f5ef">
+    <meta name="description" content="一个简单、轻快的每日待办清单。任务只保存在当前浏览器。">
+    <title>今日清单 · 把事情一件件做好</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <main class="app-shell">
+      <header class="page-header">
+        <p class="eyebrow">DAYLIST · DAILY NOTES</p>
+        <h1>今日清单<span>。</span></h1>
+        <p class="intro">把想做的事写下来，一件一件来。</p>
+      </header>
+
+      <section class="list-card" aria-labelledby="list-heading">
+        <form class="add-form" id="add-form">
+          <label class="sr-only" for="task-input">添加一项任务</label>
+          <input id="task-input" name="task" type="text" maxlength="120" placeholder="今天想完成什么？" autocomplete="off" required>
+          <button class="add-button" type="submit" aria-label="添加任务">＋</button>
+        </form>
+
+        <div class="list-toolbar">
+          <div>
+            <h2 id="list-heading">我的任务</h2>
+            <p id="task-summary" class="task-summary" aria-live="polite">还没有任务</p>
+          </div>
+          <div class="filters" role="group" aria-label="筛选任务">
+            <button class="filter-button is-active" type="button" data-filter="all" aria-pressed="true">全部</button>
+            <button class="filter-button" type="button" data-filter="active" aria-pressed="false">待完成</button>
+            <button class="filter-button" type="button" data-filter="done" aria-pressed="false">已完成</button>
+          </div>
+        </div>
+
+        <ul class="task-list" id="task-list" aria-live="polite"></ul>
+        <div class="empty-state" id="empty-state">
+          <span class="empty-mark" aria-hidden="true">✳</span>
+          <p id="empty-title">先写下第一件小事</p>
+          <span id="empty-hint">完成后，点一下圆圈就能打勾。</span>
+        </div>
+
+        <footer class="list-footer">
+          <span>自动保存在这台设备的浏览器</span>
+          <button class="clear-button" type="button" id="clear-done" hidden>清除已完成</button>
+        </footer>
+      </section>
+
+      <p class="page-note">慢慢来，做完一件就很好。</p>
+    </main>
+  </body>
+</html>
